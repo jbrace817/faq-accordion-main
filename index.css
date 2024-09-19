@@ -1,0 +1,127 @@
+@font-face {
+  font-family: 'WorkSans';
+  src: url('./assets/fonts/WorkSans-VariableFont_wght.ttf');
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: 'WorkSans', sans-serif;
+  font-optical-sizing: auto;
+  background-color: hsl(275, 100%, 97%);
+  /* font-size: calc(14px + (48 - 14) * ((100vw - 300px) / (3840 - 300))); */
+  /* font-size: clamp(0.875rem, 0.695rem + 0.96vw, 3rem); */
+}
+
+.pattern {
+  background-image: url('./assets/images/background-pattern-desktop.svg');
+  width: 100vw;
+  height: 40vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.wrapper {
+  width: 90%;
+  /* max-width: 625px; */
+  max-width: 33%;
+  padding: 2rem 2rem 1rem 2rem;
+  border-radius: 1.25rem;
+  margin: 0 10px 0 10px;
+  background-color: hsl(0, 0%, 100%);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+header {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+h1 {
+  font-size: 3rem;
+  margin: 1rem;
+  color: hsl(292, 42%, 14%);
+}
+
+.attribution {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: clamp(0.6875rem, -0.1249rem + 0.677vw, 1.5rem);
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+/*XX-Large Devices up to 4k*/
+@media only screen and (min-width: 1921px) {
+  body {
+    font-size: clamp(1.17rem, 0.09rem + 0.9vw, 2.25rem);
+  }
+
+  h1 {
+    font-size: clamp(3rem, 0.9996rem + 1.667vw, 5rem);
+  }
+
+  .wrapper {
+    max-width: 34%;
+    padding: 3rem 3rem 2rem 3rem;
+  }
+}
+
+/*Large devices less than 1200px*/
+@media only screen and (max-width: 1199.98px) {
+  .wrapper {
+    max-width: 60%;
+  }
+
+  h1 {
+    font-size: 3rem;
+  }
+
+  svg {
+    width: 2.5rem;
+  }
+}
+
+/* Medium devices (tablets, less than 992px) */
+@media only screen and (max-width: 991.98px) {
+  .pattern {
+    background-image: url('./assets/images/background-pattern-mobile.svg');
+  }
+  .wrapper {
+    max-width: 70%;
+  }
+}
+
+/* Small devices (landscape phones, less than 768px) */
+@media only screen and (max-width: 767.98px) {
+  .wrapper {
+    max-width: 80%;
+  }
+  h1 {
+    font-size: 2rem;
+  }
+  svg {
+    width: 1.5rem;
+  }
+}
+
+/* X-Small devices (portrait phones, less than 576px) */
+@media only screen and (max-width: 575.98px) {
+  .wrapper {
+    max-width: 90%;
+  }
+}
