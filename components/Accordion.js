@@ -122,8 +122,8 @@ class Accordion extends HTMLElement {
     this.shadowRoot.querySelectorAll('.item').forEach((item, index) => {
       const content = this.shadowRoot.querySelectorAll('.content');
       const icon = this.shadowRoot.querySelectorAll('img');
-      const svgPlus = '../assets/images/icon-plus.svg';
-      const svgMinus = '../assets/images/icon-minus.svg';
+      const svgPlus = './assets/images/icon-plus.svg';
+      const svgMinus = './assets/images/icon-minus.svg';
       const title = this.shadowRoot.querySelectorAll('.title');
       title[0].style.border = 'none';
 
@@ -141,15 +141,15 @@ class Accordion extends HTMLElement {
         // Close the currently open accordion (if any)
         if (isOpen) {
           content[this.openIndex].classList.remove(className);
-          icon[this.openIndex].setAttribute('src', svgClose);
-          icon[this.openIndex].setAttribute('alt', altClose);
+          icon[this.openIndex].src = svgClose;
+          icon[this.openIndex].alt = altClose;
         }
 
         // If the clicked accordion is not the currently open one, open it
         if (this.openIndex !== index) {
           content[index].classList.add(className);
-          icon[index].setAttribute('src', svgOpen);
-          icon[index].setAttribute('alt', altOpen);
+          icon[index].src = svgOpen;
+          icon[index].alt = altOpen;
           this.openIndex = index;
         } else {
           // Otherwise, reset openIndex (all accordions are closed)
@@ -158,7 +158,7 @@ class Accordion extends HTMLElement {
       };
 
       item.addEventListener('click', () => {
-        toggleAccordion(index, svgMinus, 'plus icon', svgPlus, 'minus icon');
+        toggleAccordion(index, svgMinus, 'minus icon', svgPlus, 'plus icon');
       });
     });
   }
