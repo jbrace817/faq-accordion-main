@@ -99,7 +99,7 @@ template.innerHTML = `
             <div class="item">
                 <div class="title">
                 <h3>${faq.question}</h3>
-                <img src="../assets/images/icon-plus.svg" alt="plus icon"/>
+                <img src="./assets/images/icon-plus.svg" alt="plus icon"/>
                 </div>
                 <div>
                 <p class="content">${faq.answer}</p>
