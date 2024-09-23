@@ -27,9 +27,7 @@ template.innerHTML = `
         
 
         .title{
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
+          
           border-top: 2px solid var(--light-pink);
           padding: 1rem 0 1rem 0;
         }
@@ -47,6 +45,13 @@ template.innerHTML = `
         .open {
           display: block;
           margin:0;
+        }
+
+        summary {
+          list-style: none;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
         }
 
         @media only screen and (min-width: 1921px) {
@@ -97,10 +102,11 @@ template.innerHTML = `
           .map(
             (faq) => `
             <div class="item">
-                <div class="title">
-                <h3>${faq.question}</h3>
-                <img src="./assets/images/icon-plus.svg" alt="plus icon"/>
-                </div>
+                <details class="title" >
+                  <summary><h3>${faq.question}</h3>
+                  <img src="./assets/images/icon-plus.svg" alt="plus icon" />
+                  </summary>
+                </details>
                 <div>
                 <p class="content">${faq.answer}</p>
                 </div>
@@ -160,6 +166,11 @@ class Accordion extends HTMLElement {
       item.addEventListener('click', () => {
         toggleAccordion(index, svgMinus, 'minus icon', svgPlus, 'plus icon');
       });
+      // item.addEventListener('keydown', (e) => {
+      //   if (e.keyCode === 13) {
+      //     toggleAccordion(index, svgMinus, 'minus icon', svgPlus, 'plus icon');
+      //   }
+      // });
     });
   }
 }
